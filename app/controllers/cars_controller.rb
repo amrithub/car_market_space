@@ -80,7 +80,16 @@ class CarsController < ApplicationController
   end
   end
 
-    # Only allow a list of trusted parameters through.
+    #Only allow a list of trusted parameters through.
+    def set_breeds_and_sexes
+      @breeds = Breed.all
+      @sexes = Listing.sexes.keys
+  end
+
+  #   def set_transmission
+      
+  #     @transmission = Transmission.transmissions.keys
+  # end
     def car_params
       params.require(:car).permit(:date_posted, :model, :kilometres, :last_edited, :year_manufactured, :make, :body_type, :transmission, :air_conditioning, :colour, :picture)
     end
