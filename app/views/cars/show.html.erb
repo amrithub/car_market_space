@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date posted:</strong>
+  <%= @car.date_posted %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @car.model %>
+</p>
+
+<p>
+  <strong>Kilometres:</strong>
+  <%= @car.kilometres %>
+</p>
+
+<p>
+  <strong>Last edited:</strong>
+  <%= @car.last_edited %>
+</p>
+
+<p>
+  <strong>Year manufactured:</strong>
+  <%= @car.year_manufactured %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @car.make %>
+</p>
+
+<p>
+  <strong>Body type:</strong>
+  <%= @car.body_type %>
+</p>
+
+<p>
+  <strong>Transmission:</strong>
+  <%= @car.transmission %>
+</p>
+
+<p>
+  <strong>Air conditioning:</strong>
+  <%= @car.air_conditioning %>
+</p>
+
+<p>
+  <strong>Colour:</strong>
+  <%= @car.colour %>
+</p>
+<%= image_tag @car.picture if @car.picture.attached? %>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
