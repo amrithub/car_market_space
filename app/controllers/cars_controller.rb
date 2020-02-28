@@ -4,8 +4,16 @@ class CarsController < ApplicationController
   # before_action :set_car, only: [:show, :edit, :update, :destroy]
   before_action :set_car, only: [:show]
   before_action :set_user_car, only: [:edit, :update, :destroy]
+  before_action :set_transmission, only: [:new, :edit]
   # GET /cars
   # GET /cars.json
+  # Radio button created
+  def set_transmission
+      
+    @transmissions = Car.transmissions.keys
+
+    # @trns = Car.transmissions.to_a
+  end
   def index
     @cars = Car.all
   end
@@ -81,16 +89,9 @@ class CarsController < ApplicationController
   end
 
     #Only allow a list of trusted parameters through.
-    def set_breeds_and_sexes
-      @breeds = Breed.all
-      @sexes = Listing.sexes.keys
-  end
-
-  #   def set_transmission
-      
-  #     @transmission = Transmission.transmissions.keys
-  # end
+    
+  
     def car_params
-      params.require(:car).permit(:date_posted, :model, :kilometres, :last_edited, :year_manufactured, :make, :body_type, :transmission, :air_conditioning, :colour, :picture)
+      params.require(:car).permit(:date_posted, :cost, :model, :kilometres, :last_edited, :year_manufactured, :make, :body_type, :transmission, :air_conditioning, :colour, :picture)
     end
 

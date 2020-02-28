@@ -15,7 +15,11 @@
     <%= form.label :date_posted %>
     <%= form.date_select :date_posted %>
   </div>
-
+  
+  <div class="field">
+  <%= form.label :cost %>
+  <%= form.number_field :cost %>
+</div>
   <div class="field">
     <%= form.label :model %>
     <%= form.text_field :model %>
@@ -41,17 +45,23 @@
     <%= form.text_field :make %>
   </div>
 
+  
   <div class="field">
     <%= form.label :body_type %>
     <%= form.number_field :body_type %>
   </div>
-
-  
-
   <div class="field">
     <%= form.label :transmission %>
-    <%= form.number_field :transmission %>
+    
   </div>
+  
+
+  <% @transmissions.each do |option| %>
+    <div>
+        <%= form.radio_button :transmission, option %>
+        <%= form.label "transmission_#{option}".to_sym, option %>
+    <div>
+<% end %>
   
 
   <div class="field">

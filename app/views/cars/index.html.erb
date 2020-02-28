@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Date posted</th>
+      <th>Cost</th>
       <th>Model</th>
       <th>Kilometres</th>
       <th>Last edited</th>
@@ -23,6 +24,7 @@
     <% @cars.each do |car| %>
       <tr>
         <td><%= car.date_posted %></td>
+        <td><%= car.cost %></td>
         <td><%= car.model %></td>
         <td><%= car.kilometres %></td>
         <td><%= car.last_edited %></td>
