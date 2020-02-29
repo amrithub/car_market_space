@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
     def home
-        render plain: "Welcome to car market"
+        # render plain: "Welcome to car market"
     end
 
     def not_found

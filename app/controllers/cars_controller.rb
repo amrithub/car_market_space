@@ -1,27 +1,26 @@
 class CarsController < ApplicationController
-  
   before_action :authenticate_user!
+  
   # before_action :set_car, only: [:show, :edit, :update, :destroy]
   before_action :set_car, only: [:show]
   before_action :set_user_car, only: [:edit, :update, :destroy]
   before_action :set_transmission, only: [:new, :edit]
+  
   # GET /cars
   # GET /cars.json
   # Radio button created
-  def set_transmission
-      
-    @transmissions = Car.transmissions.keys
-
-    # @trns = Car.transmissions.to_a
-  end
+  
   def index
     @cars = Car.all
+    
   end
 
   # GET /cars/1
   # GET /cars/1.json
   def show
     
+    
+ 
   end
 
   # GET /cars/new
@@ -75,6 +74,12 @@ class CarsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_transmission
+      
+      @transmissions = Car.transmissions.keys
+  
+      # @trns = Car.transmissions.to_a
+    end
     def set_car
       @car = Car.find(params[:id])
     end
