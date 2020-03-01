@@ -5,6 +5,8 @@ class CarsController < ApplicationController
   before_action :set_car, only: [:show]
   before_action :set_user_car, only: [:edit, :update, :destroy]
   before_action :set_transmission, only: [:new, :edit]
+  before_action :set_air_conditioning, only: [:new, :edit]
+
   
   # GET /cars
   # GET /cars.json
@@ -80,6 +82,12 @@ class CarsController < ApplicationController
   
       # @trns = Car.transmissions.to_a
     end
+    def set_air_conditioning
+      
+      @air_conditionings = Car.air_conditionings.keys
+  
+      # @trns = Car.transmissions.to_a
+    end
     def set_car
       @car = Car.find(params[:id])
     end
@@ -97,6 +105,6 @@ class CarsController < ApplicationController
     
   
     def car_params
-      params.require(:car).permit(:date_posted, :cost, :model, :kilometres, :last_edited, :year_manufactured, :make, :body_type, :transmission, :air_conditioning, :colour, :picture)
+      params.require(:car).permit(:date_posted, :cost, :model, :kilometres, :last_edited, :year_manufactured, :make, :body, :transmission, :air_conditioning, :colour, :picture)
     end
 

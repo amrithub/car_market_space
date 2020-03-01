@@ -47,8 +47,8 @@
 
   
   <div class="field">
-    <%= form.label :body_type %>
-    <%= form.number_field :body_type %>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
   </div>
   <div class="field">
     <%= form.label :transmission %>
@@ -62,12 +62,19 @@
         <%= form.label "transmission_#{option}".to_sym, option %>
     <div>
 <% end %>
+<div class="field">
+    <%= form.label :air_conditioning%>
+    
+  </div>
+  <% @air_conditionings.each do |option| %>
+  <div>
+      <%= form.radio_button :air_conditioning, option %>
+      <%= form.label "air_conditioning_#{option}".to_sym, option %>
+  <div>
+<% end %>
   
 
-  <div class="field">
-    <%= form.label :air_conditioning %>
-    <%= form.number_field :air_conditioning %>
-  </div>
+  
 
   <div class="field">
     <%= form.label :colour %>
