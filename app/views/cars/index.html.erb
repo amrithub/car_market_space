@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cars</h1>
+<h1 style="color:blue;font-size:46px;">Cars</h1>
 
 <table>
   <thead>
@@ -35,7 +35,7 @@
         <td><%= car.air_conditioning %></td>
         <td><%= car.colour %></td>
         <td><%= link_to 'Show', car %></td>
-        <%= link_to "view", car_path(car) %>
+        
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
