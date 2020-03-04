@@ -1,7 +1,22 @@
-<p id="notice"><%= notice %></p>
+<style>
+table
+{
+  border-collapse: separate;
+  border-spacing: 7px 50px;
+}
+car.picture
+{
+  width="50" 
+  height="33"
+}
+</style>
+<%= form_with url: cars_path, method: "get", local: true do |form|%>
 
-<h1 style="color:blue;font-size:46px;">Cars</h1>
+  <%= form.label :search %>
+  <%= form.text_field :search%>
+  <%= form.submit "Search"%>
 
+<% end %>
 <table>
   <thead>
     <tr>
@@ -16,14 +31,18 @@
       <th>Transmission</th>
       <th>Air conditioning</th>
       <th>Colour</th>
+      <th>Picture</th>
       <th colspan="3"></th>
+      
     </tr>
   </thead>
 
   <tbody>
     <% @cars.each do |car| %>
       <tr>
+        
         <td><%= car.date_posted %></td>
+        
         <td><%= car.cost %></td>
         <td><%= car.model %></td>
         <td><%= car.kilometres %></td>
@@ -34,11 +53,20 @@
         <td><%= car.transmission %></td>
         <td><%= car.air_conditioning %></td>
         <td><%= car.colour %></td>
+        
+        
+        <td><%= image_tag car.picture, :style => "border: 1px solid red; width:50px; height:50px;" if car.picture.attached?%></td>
         <td><%= link_to 'Show', car %></td>
         
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
+        <td>
+        
+        <%= link_to 'Edit', edit_car_path(car) %>
+        
+        </td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        
+
+        </tr>
     <% end %>
   </tbody>
 </table>
@@ -46,3 +74,4 @@
 <br>
 
 <%= link_to 'New Car', new_car_path %>
+

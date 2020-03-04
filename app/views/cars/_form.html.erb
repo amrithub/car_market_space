@@ -101,4 +101,14 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+  
 <% end %>
+$('#url-input, #description').on('blur keypress', function() {
+  var urlInputLength = $('#url-input').val().length;
+  var descriptionInputLength = $('#description').val().length;
+  if (urlInputLength == 0 || descriptionInputLength == 0) {
+    $('button').prop('disabled',true);
+  } else {
+    $('button').prop('disabled',false);
+  }
+});

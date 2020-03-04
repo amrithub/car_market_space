@@ -1,6 +1,7 @@
 class CarsController < ApplicationController
-  before_action :authenticate_user!
-  
+  before_action :authenticate_user!, except: [:show, :index]
+  # before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  # skip_before_action :authenticate_user!, only: [:index]
   # before_action :set_car, only: [:show, :edit, :update, :destroy]
   before_action :set_car, only: [:show]
   before_action :set_user_car, only: [:edit, :update, :destroy]
@@ -14,16 +15,53 @@ class CarsController < ApplicationController
   
   def index
     @cars = Car.all
-    
+    search = params[:search]
+
+    if search
+      @cars = Car.where("make LIKE ?", "%#{params[:search]}%")
+
+    else
+      @cars = Car.all
+    end
+     
   end
+ 
+  
+
+  
+  
 
   # GET /cars/1
   # GET /cars/1.json
   def show
+    if current_user
     
-    
- 
+      session = Stripe::Checkout::Session.create(
+          payment_method_types: ['card'],
+          customer_email: current_user.email,
+          line_items: [{
+            name: @car.model,
+            description: @car.make,
+            amount: @car.cost * 100,
+            currency: 'aud',
+            quantity: 1,
+          }],
+          payment_intent_data: {
+              metadata: {
+                  user_id: current_user.id,
+                  car_id: @car.id
+              }
+          },
+          success_url: "#{root_url}payments/success?userId=#{current_user.id}&carId=#{@car.id}",
+          cancel_url: "#{root_url}cars"
+      )
+  
+      @session_id = session.id
   end
+end
+  
+
+  
 
   # GET /cars/new
   def new
@@ -38,6 +76,7 @@ class CarsController < ApplicationController
   # POST /cars.json
   def create
     # @car = Car.new(car_params)
+    
     @car = current_user.cars.create(car_params)
     respond_to do |format|
       if @car.save
@@ -76,6 +115,7 @@ class CarsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    
     def set_transmission
       
       @transmissions = Car.transmissions.keys
@@ -100,6 +140,7 @@ class CarsController < ApplicationController
       end
   end
   end
+
 
     #Only allow a list of trusted parameters through.
     

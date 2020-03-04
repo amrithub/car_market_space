@@ -1,3 +1,17 @@
+<style>
+.container {
+  
+  margin-left:200px;
+  margin-right:200px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+<div class="container">
+<h1 style="color:blue;font-size:46px;">Car Details</h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -55,7 +69,28 @@
   <strong>Colour:</strong>
   <%= @car.colour %>
 </p>
-<%= image_tag @car.picture if @car.picture.attached? %>
+
+<button data-stripe="payment">
+  Pay Deposit <%= number_to_currency(@car.cost) %>
+</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  document
+    .querySelector("[data-stripe='payment']")
+    .addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      );
+
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      });
+    });
+</script>
+<%= image_tag @car.picture  if @car.picture.attached? %>
+
 
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
