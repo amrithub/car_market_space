@@ -66,3 +66,5 @@ gem "devise", "~> 4.7"
 gem "stripe", "~> 5.17"
 
 gem "aws-sdk-s3", "~> 1.60"
+gem "bootstrap", "~> 4.0.0"
+gem "jquery-rails"

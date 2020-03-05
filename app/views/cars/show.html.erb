@@ -9,7 +9,7 @@
 }
 </style>
 
-<div class="container">
+<div class="container text-left">
 <h1 style="color:blue;font-size:46px;">Car Details</h1>
 
 <p id="notice"><%= notice %></p>
@@ -69,11 +69,15 @@
   <strong>Colour:</strong>
   <%= @car.colour %>
 </p>
-
+<% if user_signed_in?%>
 <button data-stripe="payment">
   Pay Deposit <%= number_to_currency(@car.cost) %>
 </button>
-
+<%else%>
+  <button data-stripe="payment">
+ <%= link_to "Buy", new_user_session_path%>
+</button>
+<%end%>
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
@@ -93,5 +97,5 @@
 
 
 
-<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Edit', edit_car_path(@car) %>
 <%= link_to 'Back', cars_path %>
