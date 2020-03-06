@@ -146,6 +146,6 @@ end
     
   
     def car_params
-      params.require(:car).permit(:date_posted, :cost, :model, :kilometres, :last_edited, :year_manufactured, :make, :body, :transmission, :air_conditioning, :colour, :picture)
+      params.require(:car).permit(:date_posted, :cost, :model, :kilometres, :last_edited, :year_manufactured, :make, :body, :transmission, :air_conditioning, :colour, :picture, :user_id)
     end
 
