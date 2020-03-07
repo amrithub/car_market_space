@@ -20,15 +20,8 @@ end
   # Radio button created
   
   def index
-    @cars = Car.all
-    search = params[:search]
-
-    if search
-      @cars = Car.where("make LIKE ?", "%#{params[:search]}%")
-
-    else
-      @cars = Car.all
-    end
+    @q = Car.ransack(params[:q])
+    @cars = @q.result
      
   end
  

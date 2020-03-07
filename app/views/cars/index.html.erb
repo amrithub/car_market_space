@@ -10,11 +10,18 @@ car.picture
   height="33"
 }
 </style>
-<%= form_with url: cars_path, method: "get", local: true do |form|%>
+<p id="notice"><%= notice %></p>
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :make_or_model_or_colour_or_body_cont %>
 
-  <%= form.label :search %>
-  <%= form.text_field :search%>
-  <%= form.submit "Search"%>
+  <% List.all.each do |list|%>
+    <%= check_box_tag "q[list_name_cont_any][]", list.name%>
+    <%= list.name %>
+    
+<% end %>
+
+  
+  <%= f.submit %>
 
 <% end %>
 <table>
@@ -24,12 +31,12 @@ car.picture
       <th>Cost</th>
       <th>Model</th>
       <th>Kilometres</th>
-      <th>Last edited</th>
+      
       <th>Year manufactured</th>
       <th>Make</th>
       <th>Body</th>
       <th>Transmission</th>
-      <th>Air conditioning</th>
+      
       <th>Colour</th>
       <th>Picture</th>
       <th colspan="3"></th>
@@ -46,13 +53,13 @@ car.picture
         <td><%= car.cost %></td>
         <td><%= car.model %></td>
         <td><%= car.kilometres %></td>
-        <td><%= car.last_edited %></td>
+        
         <td><%= car.year_manufactured %></td>
         <td><%= car.make %></td>
         <td><%= car.list.name %></td>
         
         <td><%= car.transmission %></td>
-        <td><%= car.air_conditioning %></td>
+        
         <td><%= car.colour %></td>
         
         
