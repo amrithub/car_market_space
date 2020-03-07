@@ -7,6 +7,12 @@ class CarsController < ApplicationController
   before_action :set_user_car, only: [:edit, :update, :destroy]
   before_action :set_transmission, only: [:new, :edit]
   before_action :set_air_conditioning, only: [:new, :edit]
+  before_action :set_lists, only: [:new, :edit]
+
+def set_lists
+    @lists = List.all
+    
+end
 
   
   # GET /cars
@@ -146,6 +152,6 @@ end
     
   
     def car_params
-      params.require(:car).permit(:date_posted, :cost, :model, :kilometres, :last_edited, :year_manufactured, :make, :body, :transmission, :air_conditioning, :colour, :picture, :user_id)
+      params.require(:car).permit(:date_posted, :cost, :model, :kilometres, :last_edited, :year_manufactured, :make, :body, :list_id, :transmission, :air_conditioning, :colour, :picture, :user_id)
     end
 

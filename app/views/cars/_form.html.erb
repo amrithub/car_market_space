@@ -47,6 +47,11 @@
     <%= form.label :last_edited %>
     <%= form.date_select :last_edited %>
   </div>
+  <div>
+        <%= form.label :Body%>
+        <%= form.select(:list_id, @lists.map{|b| [b.name, b.id]}) %>
+    </div>
+    
 
   <div class="field">
     <%= form.label :year_manufactured %>
@@ -59,10 +64,7 @@
   </div>
 
   
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
+  
   <div class="field">
     <%= form.label :transmission %>
     
