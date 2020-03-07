@@ -40,11 +40,14 @@ This component includes the details of a car put on the advertisement list. It i
 **Users:**
 Users are all those people who are registered as a member in the application. In this case, all the people who want to put their car on advertisement and those who want to buy one of the listed cars are users.
 
-**listz:**
+**lists:**
 This component is associated with the body-types of cars. Different body types are fed to the table named lists which may be Sedan, Suv, Ute, Mini-Vans etc.
 
 **Active Storage:**
 This storage is for enabling the user to upload photo from her/his own storage. Moreover, a user can have a bucket in amazon and store the picture over there.
+
+## **R16	Detail any third party services that your app will use**
+This application uses Stripe for payment gateway. When a user is logged in and wants to [urchase a car of his/her choice, payment can be made via Stripe and the user is required to have all the credit/debit card details in order to make the payment and purchase the desired car.
 
 
 
