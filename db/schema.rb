@@ -80,15 +80,15 @@ ActiveRecord::Schema.define(version: 2020_03_08_004138) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.integer "contact"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
+  # create_table "profiles", force: :cascade do |t|
+  #   t.string "name"
+  #   t.string "address"
+  #   t.integer "contact"
+  #   t.datetime "created_at", null: false
+  #   t.datetime "updated_at", null: false
+  #   t.bigint "user_id"
+  #   t.index ["user_id"], name: "index_profiles_on_user_id"
+  # end
 
   create_table "shapes", force: :cascade do |t|
     t.string "name"
@@ -116,5 +116,5 @@ ActiveRecord::Schema.define(version: 2020_03_08_004138) do
   add_foreign_key "cars", "lists"
   add_foreign_key "cars", "shapes"
   add_foreign_key "cars", "users"
-  add_foreign_key "profiles", "users"
+  # sadd_foreign_key "profiles", "users"
 end
