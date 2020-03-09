@@ -2,3 +2,9 @@
 
 <%= link_to 'cars', cars_path %>
 <%= link_to 'Add a Car', new_car_path %>
+<% if user_signed_in? %>
+
+<%else%>
+<%= link_to "login", new_user_session_path %>
+<%end%>
+

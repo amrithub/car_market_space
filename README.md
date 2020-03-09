@@ -21,7 +21,9 @@ d. Search Engine: The user can filter cars on the basis of make, model, cost and
 
 e. Dropdown list for body-type makes it easy to view different shapes of car and select the desired one.
 
-- Sitemap
+### **Sitemap:**
+The overall site map for the application is presented below:
+![wireframe](app/assets/images/site.png)
 - Screenshots
 ### **Target audience**
 Obviously, since cars are mostly used by adults, adults are the target audience (24 - 55 years old). So all the people who use private vehicle are focussed in the design of this application.
@@ -47,8 +49,32 @@ This component is associated with the body-types of cars. Different body types a
 This storage is for enabling the user to upload photo from her/his own storage. Moreover, a user can have a bucket in amazon and store the picture over there.
 
 ## **R16	Detail any third party services that your app will use**
-This application uses Stripe for payment gateway. When a user is logged in and wants to [urchase a car of his/her choice, payment can be made via Stripe and the user is required to have all the credit/debit card details in order to make the payment and purchase the desired car.
+This application uses Stripe for payment gateway. When a user is logged in and wants to [urchase a car of his/her choice, payment can be made via Stripe and the user is required to have all the credit/debit card details in order to make the payment and purchase the desired car. Any guest users are not capable of buying the listed car despite being able to view the car.
 
+
+
+
+## **R17	Describe your projects models in terms of the relationships (active record associations) they have with each other**
+In this marketplace application, following are the different model entities:
+a. Car
+b. User
+c. List
+
+Car is the most important model in this app and it is associated with user and List. List is for storing different body types of cars like Sedan, Suv, Ute and much more. 
+
+A list belongs to a user and a user have zero or multiple cars. 
+A list has many cars and a car belongs to one list only.
+
+Also, for enabling the user to use active storage via AWS bucket, there are two tables named active_storage_attachments and active_storage_blobs.
+
+## **R18	Discuss the database relations to be implemented in your application**
+This application uses Postgresql and Ruby on Rails. 
+### **One to 
+
+## **R19	Provide your database schema design**
+
+
+## **R20	Describe the way tasks are allocated and tracked in your project**
 
 
 
