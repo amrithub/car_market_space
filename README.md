@@ -1,8 +1,8 @@
 # **Introduction**
-This is a market web application for buyers and sellers of cars. A user can register oneself and then buy a car posted by other users. Also, a user can post an advertisement of his/her car. In addition, non-registered users can see the car lists and the car details.
+This is a market place application for buyers and sellers of cars. Since online shopping is quite popular these days (efficient as well), most of the people would like to look online for shopping whether it is headphones or laptop. In order to make it easy for the buyers and sellers of personal car, this web application has been designed. Visiting this application, a user can register oneself and then buy a car posted by other users. Also, a user can post an advertisement of his/her car. In addition, non-registered users can see the car lists and the car details.
 
-# **Motivation/Objective**
-Even though we have so many market place applications like Ebay, Amazon and gumtree, Ebay and Amazon are not suitable for car sales. Also, people can post car advertisements in gumtree which we can see quite often, but, they can't make the payment via gumtree. So, I decided to design a marketplace application so that it is specialized in cars only and a user can also buy the car online by making online payment.
+# **Issue with current car marketplace applications and Motivation**
+Even though we have so many market place applications like Ebay, Amazon and gumtree, Ebay and Amazon are not suitable for car sales as they are general purpose online marketplace application. Also, people can post car advertisements in gumtree which we can see quite often, but, they can't make the payment via gumtree. So, I decided to design a marketplace application so that it is specialized in cars only and a user can also buy the car online by making online payment.
 
 # **Description of the application**
 ### **Purpose**: 
@@ -21,20 +21,40 @@ d. Search Engine: The user can filter cars on the basis of make, model, cost and
 
 e. Dropdown list for body-type makes it easy to view different shapes of car and select the desired one.
 
-### **Sitemap:**
+# **Sitemap:**
 The overall site map for the application is presented below:
-![wireframe](app/assets/images/site.png)
+![SiteMap](app/assets/images/site.png)
 - Screenshots
-### **Target audience**
+# **Target audience**
 Obviously, since cars are mostly used by adults, adults are the target audience (24 - 55 years old). So all the people who use private vehicle are focussed in the design of this application.
-### **Tech stack (e.g. html, css, deployment platform, etc)**
+# **Tech stack applied in the application**
 The application uses .html.erb, Scss, bootstrap for the frontend related tasks. For the backend purpose, it uses Ryby on Rails and Psotgresql. Git has been used for version control and Heroku is the deployment platform for this application.
 
 # **User Stories**
 
+AS a user, I would like to have the following features in the car market place application.
+
+a. If I want to buy a car, I would like to view all the cars that are listed by other user.
+
+b. Again as a buyer, I would like to view the details and picture of all the cars listed.
+
+c. As a buyer, I would like to pay for the car I like online and get my car delivered.
+
+d. As a seller, I would like to post a car for sale, edit and delete the post whenever I like.
+
+e. As a seller, I would like to get paid online and deliver the vehicle to the buyer. 
+
+f. As a seller, nobody other than me should edit or delete my post.
+# **An ERD for the  application**
+
+The entity relationship diagram of the application is presented below:
+
+![ERD](app/assets/images/aerd.png)
+
 # **Wireframes**
 ![wireframe](app/assets/images/mpwires.png)
-## **R15	Explain the different high-level components (abstractions) in your app**
+
+# **High-level components (abstractions) in the appication**
 Following are the high-level compomnents in mu car_marekt_space application:
 **a. Cars:**
 This component includes the details of a car put on the advertisement list. It isa actually the list of cars added to the list of cars.
@@ -48,13 +68,13 @@ This component is associated with the body-types of cars. Different body types a
 **Active Storage:**
 This storage is for enabling the user to upload photo from her/his own storage. Moreover, a user can have a bucket in amazon and store the picture over there.
 
-## **R16	Detail any third party services that your app will use**
+# **Third party services that the app will use**
 This application uses Stripe for payment gateway. When a user is logged in and wants to [urchase a car of his/her choice, payment can be made via Stripe and the user is required to have all the credit/debit card details in order to make the payment and purchase the desired car. Any guest users are not capable of buying the listed car despite being able to view the car.
 
 
 
 
-## **R17	Describe your projects models in terms of the relationships (active record associations) they have with each other**
+## **projects models in terms of the relationships (active record associations) they have with each other**
 In this marketplace application, following are the different model entities:
 a. Car
 b. User
@@ -67,14 +87,45 @@ A list has many cars and a car belongs to one list only.
 
 Also, for enabling the user to use active storage via AWS bucket, there are two tables named active_storage_attachments and active_storage_blobs.
 
-## **R18	Discuss the database relations to be implemented in your application**
-This application uses Postgresql and Ruby on Rails. 
-### **One to 
+# **Discuss the database relations  implemented in the application**
+This application uses Postgresql and Ruby on Rails. The relations used in this database are:
+#### **One Mandatory to Many Optional:**
+In the database of this application, there is only one type of relation, i.e, one mandatory to many optional. AS can be seen from the ERD, a car belongs to at least one user but a user can exist without a car in the listing. Also, a user can post more than one car.
+Similar relation exists between the user and the cars listed. When active storage is used, the same i,e, one mandatory to mamy optional exists between the storage and blobs, storage being mandatory and blob as optional.
 
-## **R19	Provide your database schema design**
 
 
-## **R20	Describe the way tasks are allocated and tracked in your project**
+# **Database schema design for the application**
+
+The actual database schema design for the apllication as seen in dbeaver is as below:
+![Database schema design](app/assets/images/schema.png)
+
+
+
+
+# **Describe the way tasks are allocated and tracked in your project**
+
+I have used Trello as a project management tool for managing the car marketplace application. I've devided the features as mandatory (donuts) and additional (sprinkles). The screenshots of trello as the project was continuously tracked, have been attached below:
+
+Date: 28/02/2020
+
+![Day1 Trello](app/assets/images/ctrelo1.png)
+
+Date: 03/03/2020
+
+![Day1 Trello](app/assets/images/ctrelo2.png)
+
+Date: 05/03/2020
+
+![Day1 Trello](app/assets/images/ctrelo3.png)
+
+Date: 10/03/2020
+
+![Day1 Trello](app/assets/images/ctrelo4.png)
+
+
+
+
 
 
 
