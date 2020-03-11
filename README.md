@@ -45,6 +45,7 @@ d. As a seller, I would like to post a car for sale, edit and delete the post wh
 e. As a seller, I would like to get paid online and deliver the vehicle to the buyer. 
 
 f. As a seller, nobody other than me should edit or delete my post.
+
 # **An ERD for the  application**
 
 The entity relationship diagram of the application is presented below:
@@ -69,6 +70,16 @@ This component is associated with the body-types of cars. Different body types a
 This storage is for enabling the user to upload photo from her/his own storage. Moreover, a user can have a bucket in amazon and store the picture over there.
 
 # **Third party services that the app will use**
+The major third parties involved are:
+#### **a. Amazon (AWS)**
+Aws is used for creating S3bucket for storing the pictures that users upload during creating the car list. The scces is provide after the secret and public keys are included in relevant application file.
+#### **b. Stripe** 
+This application uses Stripe for payment gateway. When a user is logged in and wants to [urchase a car of his/her choice, payment can be made via Stripe and the user is required to have all the credit/debit card details in order to make the payment and purchase the desired car. Any guest users are not capable of buying the listed car despite being able to view the car.
+#### **c. Heroku**
+Heroku is used for the deployment of the application.
+#### **d. Github**
+Github is used for stroing the codes as a backup as well as deployment via Heroku. 
+
 This application uses Stripe for payment gateway. When a user is logged in and wants to [urchase a car of his/her choice, payment can be made via Stripe and the user is required to have all the credit/debit card details in order to make the payment and purchase the desired car. Any guest users are not capable of buying the listed car despite being able to view the car.
 
 

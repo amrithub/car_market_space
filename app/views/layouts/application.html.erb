@@ -11,12 +11,24 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+  
+  
   <% if user_signed_in? %>
     <%= link_to "logout", destroy_user_session_path, method: :delete %>
-  <% else %>
+  
     
   <% end %>
+  
+    <%=render 'layouts/navigation'%>
+    <p class="notice"><%= notice %></p>
+     
+      
+    
+    
+
+    <div class="container"> 
+      <%= yield %>
+    <end>
+  </body>
   
 </html>
