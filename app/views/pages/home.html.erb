@@ -1,10 +1,4 @@
 <h1 style="color:blue;font-size:46px;"> Welcome to the superb car market</h1>
 <%= image_tag "car2.png", alt: "A Car" %>
-<%= link_to 'cars', cars_path %>
-<%= link_to 'Add a Car', new_car_path %>
-<% if user_signed_in? %>
 
-<%else%>
-<%= link_to "login", new_user_session_path %>
-<%end%>
 

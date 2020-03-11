@@ -6,7 +6,7 @@ Even though we have so many market place applications like Ebay, Amazon and gumt
 
 # **Description of the application**
 ### **Purpose**: 
-The sole purpose of this web application is to facilitate the user in order to buy or sell personal vehicles of different models, make, body and otehr features.
+The sole purpose of this web application is to facilitate the user in order to buy or sell personal vehicles of different models, make, body and otehr features. This is the age og smart shopping and nobody wants to waste too much time doing so. So, this application has been solely focussed towards designing a smart car marketplace so that people can buy/sell cars without much hassle and can get legit service for payment as well.
 
 ### **Functionality / features:**
  A user is capable of chosing a car from the lists of acars put on the adverstisement. The main features include the following:
@@ -24,11 +24,16 @@ e. Dropdown list for body-type makes it easy to view different shapes of car and
 # **Sitemap:**
 The overall site map for the application is presented below:
 ![SiteMap](app/assets/images/site.png)
-- Screenshots
+
+# **Screenshots**
+The screenshots of various pages of the web application is presented below:
+
+
 # **Target audience**
-Obviously, since cars are mostly used by adults, adults are the target audience (24 - 55 years old). So all the people who use private vehicle are focussed in the design of this application.
+This marketplace application is for all the buyers and sellers of cars (specifically personal use). Obviously, since cars are mostly used by adults, adults are the target audience (24 - 55 years old). So all the people who use private vehicle are targetted regarding the the design of this application.
+
 # **Tech stack applied in the application**
-The application uses .html.erb, Scss, bootstrap for the frontend related tasks. For the backend purpose, it uses Ryby on Rails and Psotgresql. Git has been used for version control and Heroku is the deployment platform for this application.
+The application uses .html.erb, Scss, bootstrap for the frontend related tasks. For the backend purpose, it uses Ruby on Rails and Psotgresql. Git has been used for version control and Heroku is the deployment platform for this application. Apart from these, Stripe and Aws have been called upon for payment and S3 bucket (backup for images) respectively.
 
 # **User Stories**
 
@@ -58,7 +63,7 @@ The entity relationship diagram of the application is presented below:
 # **High-level components (abstractions) in the appication**
 Following are the high-level compomnents in mu car_marekt_space application:
 **a. Cars:**
-This component includes the details of a car put on the advertisement list. It isa actually the list of cars added to the list of cars.
+This component includes the details of a car put on the advertisement list. It is actually the list of cars added to the list of cars.
 
 **Users:**
 Users are all those people who are registered as a member in the application. In this case, all the people who want to put their car on advertisement and those who want to buy one of the listed cars are users.
@@ -66,8 +71,9 @@ Users are all those people who are registered as a member in the application. In
 **lists:**
 This component is associated with the body-types of cars. Different body types are fed to the table named lists which may be Sedan, Suv, Ute, Mini-Vans etc.
 
-**Active Storage:**
+**Active Storage attachments: and blobs**
 This storage is for enabling the user to upload photo from her/his own storage. Moreover, a user can have a bucket in amazon and store the picture over there.
+
 
 # **Third party services that the app will use**
 The major third parties involved are:
@@ -79,10 +85,6 @@ This application uses Stripe for payment gateway. When a user is logged in and w
 Heroku is used for the deployment of the application.
 #### **d. Github**
 Github is used for stroing the codes as a backup as well as deployment via Heroku. 
-
-This application uses Stripe for payment gateway. When a user is logged in and wants to [urchase a car of his/her choice, payment can be made via Stripe and the user is required to have all the credit/debit card details in order to make the payment and purchase the desired car. Any guest users are not capable of buying the listed car despite being able to view the car.
-
-
 
 
 ## **projects models in terms of the relationships (active record associations) they have with each other**

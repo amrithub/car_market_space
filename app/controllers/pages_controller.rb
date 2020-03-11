@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
     def home
-        # render plain: "Welcome to car market"
+        @q = Car.ransack(params[:q])
+        @cars = @q.result
     end
 
     def not_found

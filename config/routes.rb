@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'payments/success'
+  
   devise_for :users
   resources :cars
+  get 'payments/success'
   get "/", to: "pages#home", as: "root"
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"
