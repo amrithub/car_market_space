@@ -69,4 +69,4 @@ gem "aws-sdk-s3", "~> 1.60"
 gem "bootstrap", "~> 4.0.0"
 gem "jquery-rails"
 gem "ransack", "~> 2.3"
-# gem "ultrahook"
+
