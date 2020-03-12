@@ -1,5 +1,5 @@
 
-<h1 style="color:blue;font-size:46px;">Car Lists</h1><style>
+<h1 style="color:grey;font-size:46px;">Car Lists</h1><style>
 table
 {
   border-collapse: separate;
@@ -11,6 +11,7 @@ car.picture
   height="33"
 }
 </style>
+<body style="background-color:powderblue;">
 
 <%= search_form_for @q do |f| %>
   <%= f.search_field :make_or_model_or_colour_or_body_cont %>
@@ -26,23 +27,55 @@ car.picture
 
 <% end %>
 <div class="container color-blue">
+<div class="row">
+<% i = 1 %>
+<% @cars.each do |car| %>
+  <% i = i+ 1 %>
+  
+  <div class="col">
+  <div class="card text-white bg-secondary mb-3" style="min-width: 18rem; margin-top: 100px;">
+  <div class="card-body">
+  <td><%= image_tag car.picture, :style => "border: 1px solid red; width:100px; height:100px;" if car.picture.attached?%></td>
+  <td><%= car.description %></td>
+  <td>AU$<%= car.cost %></td>
+  <p><%= car.make %></p>
+  <p><%= car.list.name %></p>
+
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text"><%= car.description %></p>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <%= link_to 'Show', car, class:"card-link" %>
+    
+    
+    
+    <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
+    
+    
+
+  </div>
+</div>
+</div>
+
+<%end%>
+
+
+<div class="container color-blue">
 <div class="table-hover">   
-<table class="table table-striped">
+<table class="table table-dark">
   <thead class="thead-dark">
      <tr>
       <th>Date posted</th>
+      
+      
       <th>Cost</th>
+
       <th>Model</th>
-      <th>Kilometres</th>
       
-      <th>Year manufactured</th>
-      <th>Make</th>
       <th>Body</th>
-      <th>Transmission</th>
       
-      <th>Colour</th>
       <th>Picture</th>
-      <th colspan="3"></th>
+      
       
     </tr>
   </thead>
@@ -52,18 +85,15 @@ car.picture
       <tr>
         
         <td><%= car.date_posted %></td>
-        
+        <td><%= car.description %></td>
         <td><%= car.cost %></td>
         <td><%= car.model %></td>
-        <td><%= car.kilometres %></td>
         
-        <td><%= car.year_manufactured %></td>
+        
+        
         <td><%= car.make %></td>
-        <td><%= car.list.name %></td>
+        <td><%= car.list.name %></td>      
         
-        <td><%= car.transmission %></td>
-        
-        <td><%= car.colour %></td>
         
         
         <td><%= image_tag car.picture, :style => "border: 1px solid red; width:50px; height:50px;" if car.picture.attached?%></td>
