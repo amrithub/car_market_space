@@ -66,7 +66,7 @@ gem "devise", "~> 4.7"
 gem "stripe", "~> 5.17"
 
 gem "aws-sdk-s3", "~> 1.60"
-gem "bootstrap", "~> 4.0.0"
+gem "bootstrap", "~> 4.3.1"
 gem "jquery-rails"
 # gem "ransack"
 gem "ultrahook"
