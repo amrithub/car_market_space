@@ -1,4 +1,93 @@
-<h1 style="color:blue;font-size:46px;"> Welcome to the superb car market</h1>
+
+<style>
+
+.erb-image-wrapper img{
+    max-width:50% !important;
+    height:auto;
+    display:block;
+}
+.container {
+  position: relative;
+  
+  font-family: Arial;
+  
+}
+
+.text-block {
+ font-size: 2vw;
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  right: 80px;
+  background-color: lightred;
+  color: brown;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+</style>
+<body style="background-color:lightblue;">
+
+<%= search_form_for @q do |f| %>
+    <%= f.search_field :make_or_model_or_colour_or_body_cont %>
+  
+    <% List.all.each do |list|%>
+      <%= check_box_tag "q[list_name_cont_any][]", list.name%>
+      <%= list.name %>
+      
+  <% end %>
+  
+    
+    <%= f.submit %>
+  
+  <% end %>
+  <h1 style="color:darkblue;font-size:5vw; margin-top:50px;s"> Welcome to the superb car market</h1>
+  <div class="container">
+  <div class="erb-image-wrapper">
 <%= image_tag "car2.png", alt: "A Car" %>
+</div>
+<div class="text-block">
+    
+    <p> View the car of your choice
+    <p>Post your car </p>
+    <p> Buy your Car</p>
+    <p>What ...and many more</p>
+  </div>
+</div>
+
+<h1 style="color:darkblue;font-size:3vw;"> Listed Today</h1>
+<div class="row">
+<% i = 1 %>
+<% @cars.reverse.each do |car| %>
+  
+  <% i = i+ 1 %>
+  <% if i < 5 %>
+  <div class="col">
+  <div class="card text-white bg-success mb-3" style="min-width: 18rem; margin-top: 10px;">
+  <div class="card-body text-secondarys">
+  <td><%= image_tag car.picture, :style => "border: 1px solid red; width:100px; height:100px;" if car.picture.attached?%></td>
+  
+  <td>AU$ <strong><%= car.cost %></td></strong>
+  <p><strong><%= car.make%></strong>
+  
+  
+  <strong><%= car.model %></strong></p>
+
+    <h5 class="card-title">Description:</h5>
+    <p class="card-text"><%= car.description %></p>
+    
+    <%= link_to 'Show', car, class:"card-link" %>
+    
+    
+    
+    <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
+    
+    
+
+  </div>
+</div>
+</div>
+<%end%>
+<%end%>
 
 

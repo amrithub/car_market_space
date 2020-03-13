@@ -75,7 +75,7 @@
   <%= @car.telephone %>
 </p>
 
-<% if user_signed_in?%>
+<% if user_signed_in?%> 
 <button data-stripe="payment">
   Pay Deposit <%= number_to_currency(@car.cost) %>
 </button>

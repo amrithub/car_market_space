@@ -29,21 +29,24 @@ car.picture
 <div class="container color-blue">
 <div class="row">
 <% i = 1 %>
-<% @cars.each do |car| %>
-  <% i = i+ 1 %>
+<% @cars.reverse.each do |car| %>
   
+  <% i = i+ 1 %>
+  <% if i < 8 %>
   <div class="col">
   <div class="card text-white bg-secondary mb-3" style="min-width: 18rem; margin-top: 100px;">
   <div class="card-body">
   <td><%= image_tag car.picture, :style => "border: 1px solid red; width:100px; height:100px;" if car.picture.attached?%></td>
-  <td><%= car.description %></td>
-  <td>AU$<%= car.cost %></td>
-  <p><%= car.make %></p>
-  <p><%= car.list.name %></p>
+  
+  <td>AU$ <strong><%= car.cost %></td></strong>
+  <p><strong><%= car.make%></strong>
+  
+  
+  <strong><%= car.model %></strong></p>
 
-    <h5 class="card-title">Card title</h5>
+    <h5 class="card-title">Description:</h5>
     <p class="card-text"><%= car.description %></p>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    
     <%= link_to 'Show', car, class:"card-link" %>
     
     
@@ -56,7 +59,7 @@ car.picture
   </div>
 </div>
 </div>
-
+<%end%>
 <%end%>
 
 
@@ -84,9 +87,9 @@ car.picture
     <% @cars.each do |car| %>
       <tr>
         
-        <td><%= car.date_posted %></td>
-        <td><%= car.description %></td>
-        <td><%= car.cost %></td>
+        <strong><td><%= car.date_posted %></td></strong>
+        
+        <td><strong><%= car.cost %></strong></td>
         <td><%= car.model %></td>
         
         

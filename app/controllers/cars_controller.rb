@@ -82,7 +82,7 @@ end
         format.html { redirect_to @car, notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
-        format.html { redirect_to new_car_path, notice: 'plz fill all the mandatory fields' }
+        format.html { redirect_to new_car_path, notice: 'plz fill all the mandatory fields'  }
         format.json { render json: @car.errors, status: :unprocessable_entity }
       end
     end
