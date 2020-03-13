@@ -70,3 +70,5 @@ gem "bootstrap", "~> 4.0.0"
 gem "jquery-rails"
 # gem "ransack"
 gem "ultrahook"
+
+gem "ransack", "~> 2.3"
