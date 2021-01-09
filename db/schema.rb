@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_03_12_100231) do
     t.integer "contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

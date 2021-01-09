@@ -4,7 +4,16 @@ This is a market place application for buyers and sellers of cars. Since online 
 # **Issue with current car marketplace applications and Motivation**
 Even though we have so many market place applications like Ebay, Amazon and gumtree, Ebay and Amazon are not suitable for car sales as they are general purpose online marketplace application. Also, people can post car advertisements in gumtree which we can see quite often, but, they can't make the payment via gumtree. So, I decided to design a marketplace application so that it is specialized in cars only and a user can also buy the car online by making online payment.
 
+# **A link (URL) to my deployed app**
+
+https://peaceful-forest-43321.herokuapp.com/
+
+# **A link to Github Repo**
+
+https://github.com/amrithub/salty-thicket-25256
+
 # **Description of the application**
+
 ### **Purpose**: 
 The sole purpose of this web application is to facilitate the user in order to buy or sell personal vehicles of different models, make, body and otehr features. This is the age og smart shopping and nobody wants to waste too much time doing so. So, this application has been solely focussed towards designing a smart car marketplace so that people can buy/sell cars without much hassle and can get legit service for payment as well.
 
@@ -27,6 +36,58 @@ The overall site map for the application is presented below:
 
 # **Screenshots**
 The screenshots of various pages of the web application is presented below:
+
+## **Desktop Views**
+**Home page**
+![Homepage](app/assets/images/dhome1.png)
+
+**Index Pages**
+
+
+![Homepage](app/assets/images/index.png)
+ **index2**
+
+![Homepage](app/assets/images/dindex2.png)
+
+
+**Login Pages**
+
+
+![Homepage](app/assets/images/ld.png)
+
+
+**Form Pages**
+
+![Homepage](app/assets/images/dform.png)
+
+**Show Page**
+
+![Homepage](app/assets/images/dshow1.png)
+
+**Payment**
+
+![Homepage](app/assets/images/payd.png)
+
+
+![Homepage](app/assets/images/paysuc.png)
+
+## **Mobile Views**
+**Home**
+![Homepage](app/assets/images/mhome1.png)
+
+
+**Index Page**
+![Homepage](app/assets/images/mindex1.png)
+
+**Form Page**
+![Homepage](app/assets/images/mform.png)
+
+**Show Page**
+![Homepage](app/assets/images/mshow.png)
+
+
+
+
 
 
 # **Target audience**
@@ -81,8 +142,10 @@ The major third parties involved are:
 Aws is used for creating S3bucket for storing the pictures that users upload during creating the car list. The scces is provide after the secret and public keys are included in relevant application file.
 #### **b. Stripe** 
 This application uses Stripe for payment gateway. When a user is logged in and wants to [urchase a car of his/her choice, payment can be made via Stripe and the user is required to have all the credit/debit card details in order to make the payment and purchase the desired car. Any guest users are not capable of buying the listed car despite being able to view the car.
+
 #### **c. Heroku**
 Heroku is used for the deployment of the application.
+
 #### **d. Github**
 Github is used for stroing the codes as a backup as well as deployment via Heroku. 
 
@@ -136,6 +199,9 @@ Date: 10/03/2020
 
 ![Day1 Trello](app/assets/images/ctrelo4.png)
 
+Date: 13/03/2020
+
+![Day1 Trello](app/assets/images/trellofinal.png)
 
 
 
@@ -144,25 +210,4 @@ Date: 10/03/2020
 
 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

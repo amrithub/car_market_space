@@ -7,3 +7,44 @@ $black: black;
     color: $white;
     font-family: 'Merriweather', sans-serif;
 }
+h1
+{
+    color:darkblue;
+    font-size:5vw;
+    margin-top:50px;
+}
+p
+{
+    font-style: oblique;
+    color: rgb(2, 31, 41);
+}
+
+
+
+.erb-image-wrapper img{
+    max-width:50% !important;
+    height:auto;
+    display:block;
+}
+.container {
+  position: relative;
+  
+  font-family: Arial;
+  
+}
+
+.text-block {
+ font-size: 2vw;
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  right: 80px;
+  background-color: lightred;
+  color: rgb(58, 51, 51);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+body{
+    background-color:lightblue;
+}

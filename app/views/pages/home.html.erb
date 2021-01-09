@@ -1,31 +1,6 @@
 
-<style>
 
-.erb-image-wrapper img{
-    max-width:50% !important;
-    height:auto;
-    display:block;
-}
-.container {
-  position: relative;
-  
-  font-family: Arial;
-  
-}
-
-.text-block {
- font-size: 2vw;
-  position: absolute;
-  top: 20px;
-  bottom: 20px;
-  right: 80px;
-  background-color: lightred;
-  color: brown;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-</style>
-<body style="background-color:lightblue;">
+<body>
 
 <%= search_form_for @q do |f| %>
     <%= f.search_field :make_or_model_or_colour_or_body_cont %>
@@ -40,7 +15,7 @@
     <%= f.submit %>
   
   <% end %>
-  <h1 style="color:darkblue;font-size:5vw; margin-top:50px;s"> Welcome to the superb car market</h1>
+  <h1 style="color:darkblue;font-size:3vw;"> Welcome to the superb car market</h1>
   <div class="container">
   <div class="erb-image-wrapper">
 <%= image_tag "car2.png", alt: "A Car" %>
@@ -55,6 +30,7 @@
 </div>
 
 <h1 style="color:darkblue;font-size:3vw;"> Listed Today</h1>
+<div class="container">
 <div class="row">
 <% i = 1 %>
 <% @cars.reverse.each do |car| %>
@@ -62,8 +38,9 @@
   <% i = i+ 1 %>
   <% if i < 5 %>
   <div class="col">
-  <div class="card text-white bg-success mb-3" style="min-width: 18rem; margin-top: 10px;">
-  <div class="card-body text-secondary">
+  <div class="card text-white bg-secondary mb-3" style="min-width: 18rem; margin-top: 10px;">
+  <div class="card-body">
+  
   <td><%= image_tag car.picture, :style => "border: 1px solid red; width:100px; height:100px;" if car.picture.attached?%></td>
   
   <td>AU$ <strong><%= car.cost %></td></strong>
@@ -72,7 +49,7 @@
   
   <strong><%= car.model %></strong></p>
 
-    <h5 class="card-title">Description:</h5>
+    
     <p class="card-text"><%= car.description %></p>
     
     <%= link_to 'Show', car, class:"card-link" %>

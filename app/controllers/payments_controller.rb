@@ -1,8 +1,10 @@
 class PaymentsController < ApplicationController
   # before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token, only: [:webhook]
+  skip_before_action :verify_authenticity_token, only: [:webhook] 
+  #payment successful
   def success
   end
+  # Webhook method definition
   def webhook
     payment_id= params[:data][:object][:payment_intent]
     payment = Stripe::PaymentIntent.retrieve(payment_id)

@@ -1,37 +1,25 @@
 class CarsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
-  # before_action :authenticate_user!, only: [:edit, :update, :destroy]
-  # skip_before_action :authenticate_user!, only: [:index]
-  # before_action :set_car, only: [:show, :edit, :update, :destroy]
-  before_action :set_car, only: [:show]
-  before_action :set_user_car, only: [:edit, :update, :destroy]
-  before_action :set_transmission, only: [:new, :edit]
-  before_action :set_air_conditioning, only: [:new, :edit]
-  before_action :set_lists, only: [:new, :edit]
-
+  before_action :authenticate_user!, except: [:show, :index] # authenticates user
+  before_action :set_car, only: [:show] # guest user can view the cars
+  before_action :set_user_car, only: [:edit, :update, :destroy] # enable user to edit, update and delete the car from the list
+  before_action :set_transmission, only: [:new, :edit] # transmission (radio) can only be in edit page and new car page
+  before_action :set_air_conditioning, only: [:new, :edit] # air_conditioning  can only be in edit page and new car page
+  before_action :set_lists, only: [:new, :edit] # user can add to list and edit
+# A method for generating lists instance
 def set_lists
     @lists = List.all
     
 end
 
   
-  # GET /cars
-  # GET /cars.json
-  # Radio button created
+  # index method defined
   
   def index
     @q = Car.ransack(params[:q])
     @cars = @q.result
      
   end
- 
-  
-
-  
-  
-
-  # GET /cars/1
-  # GET /cars/1.json
+ # Show method defined
   def show
     if current_user
     
@@ -74,7 +62,7 @@ end
   # POST /cars
   # POST /cars.json
   def create
-    # @car = Car.new(car_params)
+    
     
     @car = current_user.cars.create(car_params)
     respond_to do |format|
@@ -119,13 +107,11 @@ end
       
       @transmissions = Car.transmissions.keys
   
-      # @trns = Car.transmissions.to_a
     end
     def set_air_conditioning
       
       @air_conditionings = Car.air_conditionings.keys
   
-      # @trns = Car.transmissions.to_a
     end
     def set_car
       @car = Car.find(params[:id])
